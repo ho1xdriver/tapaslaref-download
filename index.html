@@ -1,0 +1,285 @@
+ /Users/alexandremorvan/Dev/tapaslaref/tapaslaref/github_final.html
+     <!DOCTYPE html>
+     <html lang="fr">
+     <head>
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, 
+     initial-scale=1.0">
+         <title>T'a pas la Réf?! - Télécharge l'app</title>
+         <style>
+             body {
+                 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      Roboto, sans-serif;
+                 background: linear-gradient(135deg, #1e0047 0%, #000000
+     50%, #001f3f 100%);
+                 color: white;
+                 margin: 0;
+                 padding: 20px;
+                 text-align: center;
+                 min-height: 100vh;
+                 display: flex;
+                 flex-direction: column;
+                 justify-content: center;
+             }
+
+             .container {
+                 max-width: 600px;
+                 margin: 0 auto;
+             }
+
+             .logo {
+                 font-size: 80px;
+                 margin-bottom: 20px;
+                 animation: pulse 2s infinite;
+             }
+
+             @keyframes pulse {
+                 0%, 100% { transform: scale(1); }
+                 50% { transform: scale(1.1); }
+             }
+
+             h1 {
+                 font-size: 2.5em;
+                 margin-bottom: 10px;
+                 background: linear-gradient(45deg, #00ffff, #ff00ff);
+                 -webkit-background-clip: text;
+                 -webkit-text-fill-color: transparent;
+                 background-clip: text;
+             }
+
+             .subtitle {
+                 font-size: 1.2em;
+                 color: #888;
+                 margin-bottom: 40px;
+             }
+
+             .download-section {
+                 background: rgba(255, 255, 255, 0.1);
+                 border-radius: 20px;
+                 padding: 30px;
+                 margin-bottom: 30px;
+                 backdrop-filter: blur(10px);
+                 border: 1px solid rgba(255, 255, 255, 0.1);
+             }
+
+             .platform {
+                 margin: 20px 0;
+                 padding: 25px;
+                 background: rgba(255, 255, 255, 0.05);
+                 border-radius: 15px;
+                 border: 2px solid transparent;
+                 transition: all 0.3s ease;
+             }
+
+             .platform:hover {
+                 transform: translateY(-3px);
+                 box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+             }
+
+             .platform.detected {
+                 border-color: #00ffff;
+                 box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+                 animation: glow 2s ease-in-out infinite;
+             }
+
+             @keyframes glow {
+                 0%, 100% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.3); }
+                 50% { box-shadow: 0 0 30px rgba(0, 255, 255, 0.6); }
+             }
+
+             .platform h3 {
+                 font-size: 1.5em;
+                 margin-bottom: 15px;
+                 display: flex;
+                 align-items: center;
+                 justify-content: center;
+                 gap: 10px;
+             }
+
+             .btn {
+                 display: inline-block;
+                 padding: 15px 30px;
+                 background: linear-gradient(45deg, #00bcd4, #673ab7);
+                 color: white;
+                 text-decoration: none;
+                 border-radius: 25px;
+                 font-weight: bold;
+                 margin: 10px;
+                 transition: all 0.3s ease;
+                 cursor: pointer;
+                 border: none;
+                 font-size: 1em;
+             }
+
+             .btn:hover {
+                 transform: scale(1.05);
+                 box-shadow: 0 5px 20px rgba(0, 188, 212, 0.5);
+             }
+
+             .btn.disabled {
+                 background: linear-gradient(45deg, #666, #444);
+                 cursor: not-allowed;
+             }
+
+             .info {
+                 background: rgba(255, 165, 0, 0.1);
+                 border: 1px solid rgba(255, 165, 0, 0.3);
+                 border-radius: 10px;
+                 padding: 20px;
+                 margin-top: 30px;
+                 font-size: 0.95em;
+             }
+
+             .features {
+                 display: grid;
+                 grid-template-columns: repeat(auto-fit, minmax(150px,
+     1fr));
+                 gap: 15px;
+                 margin: 30px 0;
+             }
+
+             .feature {
+                 background: rgba(255, 255, 255, 0.05);
+                 padding: 15px;
+                 border-radius: 10px;
+                 text-align: center;
+             }
+
+             .feature-icon {
+                 font-size: 2em;
+                 margin-bottom: 8px;
+             }
+
+             .footer {
+                 margin-top: 50px;
+                 color: #666;
+                 font-size: 0.9em;
+             }
+
+             @media (max-width: 600px) {
+                 h1 { font-size: 2em; }
+                 .logo { font-size: 60px; }
+                 .platform { padding: 20px; }
+             }
+         </style>
+     </head>
+     <body>
+         <div class="container">
+             <div class="logo">🎯</div>
+             <h1>T'a pas la Réf?!</h1>
+             <p class="subtitle">De la Réf au Défi !</p>
+
+             <div class="download-section">
+                 <h2>📱 Télécharge l'app</h2>
+
+                 <div class="platform" id="ios-section">
+                     <h3><span>🍎</span> iPhone / iPad</h3>
+                     <p>Installation via TestFlight</p>
+                     <button class="btn disabled" 
+     onclick="comingSoon('iOS')">
+                         Bientôt disponible
+                     </button>
+                 </div>
+
+                 <div class="platform" id="android-section">
+                     <h3><span>🤖</span> Android</h3>
+                     <p>Téléchargement direct APK</p>
+                     <button class="btn" onclick="comingSoon('Android')">
+                         APK en préparation
+                     </button>
+                 </div>
+             </div>
+
+             <div class="features">
+                 <div class="feature">
+                     <div class="feature-icon">🎮</div>
+                     <strong>Blind Test</strong>
+                     <br><small>Solo & Multijoueur</small>
+                 </div>
+                 <div class="feature">
+                     <div class="feature-icon">📚</div>
+                     <strong>+1000 Références</strong>
+                     <br><small>Films, Séries, Jeux</small>
+                 </div>
+                 <div class="feature">
+                     <div class="feature-icon">🏆</div>
+                     <strong>Défis</strong>
+                     <br><small>Challenge tes amis</small>
+                 </div>
+                 <div class="feature">
+                     <div class="feature-icon">⭐</div>
+                     <strong>Communauté</strong>
+                     <br><small>Ajoute tes réfs</small>
+                 </div>
+             </div>
+
+             <div class="info">
+                 <strong>🚀 Application en cours de finalisation
+     !</strong><br><br>
+                 Tu seras notifié dès que l'app sera disponible.<br>
+                 En attendant, suis-nous pour les dernières news !<br><br>
+                 📧 Contact : <strong>contact@tapaslaref.fr</strong>
+             </div>
+
+             <div class="footer">
+                 <p>© 2024 T'a pas la Réf?! - Tous droits réservés</p>
+                 <p>Application de blind test pop culture</p>
+             </div>
+         </div>
+
+         <script>
+             // Détection automatique de la plateforme
+             function detectPlatform() {
+                 const userAgent = navigator.userAgent || navigator.vendor
+     || window.opera;
+
+                 if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream)
+      {
+
+     document.getElementById('ios-section').classList.add('detected');
+                     console.log('iOS détecté');
+                 } else if (/android/i.test(userAgent)) {
+
+     document.getElementById('android-section').classList.add('detected');
+                     console.log('Android détecté');
+                 }
+             }
+
+             // Messages selon la plateforme
+             function comingSoon(platform) {
+                 const messages = {
+                     'iOS': '📱 Version iPhone/iPad bientôt disponible 
+     !\\n\\n🎯 T\'a pas la Réf?! arrivera sur TestFlight dans les prochaines
+      semaines.\\n\\nTu seras notifié par email dès sa sortie !\\n\\n📧 
+     contact@tapaslaref.fr',
+                     'Android': '🤖 Version Android en préparation 
+     !\\n\\nL\'APK sera disponible très bientôt pour téléchargement 
+     direct.\\n\\nRestez connectés !\\n\\n📧 contact@tapaslaref.fr'
+                 };
+
+                 alert(messages[platform]);
+             }
+
+             // Animation de bienvenue
+             function welcomeAnimation() {
+                 const logo = document.querySelector('.logo');
+                 logo.style.transform = 'scale(1.2)';
+                 setTimeout(() => {
+                     logo.style.transform = 'scale(1)';
+                 }, 500);
+             }
+
+             // Initialisation
+             document.addEventListener('DOMContentLoaded', function() {
+                 detectPlatform();
+                 setTimeout(welcomeAnimation, 1000);
+             });
+
+             // Easter egg
+             console.log('%c🎯 T\'a pas la Réf?! ', 'background: 
+     linear-gradient(45deg, #00ffff, #ff00ff); color: white; font-size: 
+     20px; padding: 10px; border-radius: 5px;');
+             console.log('Application développée avec ❤️');
+         </script>
+     </body>
+     </html>
