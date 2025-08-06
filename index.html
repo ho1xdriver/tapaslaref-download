@@ -1,4 +1,4 @@
- /Users/alexandremorvan/Dev/tapaslaref/tapaslaref/github_final.html
+/Users/alexandremorvan/Dev/tapaslaref/tapaslaref/github_updated.html
      <!DOCTYPE html>
      <html lang="fr">
      <head>
@@ -82,6 +82,11 @@
                  animation: glow 2s ease-in-out infinite;
              }
 
+             .platform.ready {
+                 border-color: #4CAF50;
+                 box-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
+             }
+
              @keyframes glow {
                  0%, 100% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.3); }
                  50% { box-shadow: 0 0 30px rgba(0, 255, 255, 0.6); }
@@ -121,6 +126,16 @@
                  cursor: not-allowed;
              }
 
+             .btn.ready {
+                 background: linear-gradient(45deg, #4CAF50, #388E3C);
+                 animation: readyPulse 2s ease-in-out infinite;
+             }
+
+             @keyframes readyPulse {
+                 0%, 100% { transform: scale(1); }
+                 50% { transform: scale(1.02); }
+             }
+
              .info {
                  background: rgba(255, 165, 0, 0.1);
                  border: 1px solid rgba(255, 165, 0, 0.3);
@@ -128,6 +143,11 @@
                  padding: 20px;
                  margin-top: 30px;
                  font-size: 0.95em;
+             }
+
+             .success {
+                 background: rgba(76, 175, 80, 0.1);
+                 border: 1px solid rgba(76, 175, 80, 0.3);
              }
 
              .features {
@@ -156,6 +176,21 @@
                  font-size: 0.9em;
              }
 
+             .instructions {
+                 background: rgba(76, 175, 80, 0.1);
+                 border: 1px solid rgba(76, 175, 80, 0.3);
+                 border-radius: 10px;
+                 padding: 15px;
+                 margin-top: 15px;
+                 font-size: 0.85em;
+                 text-align: left;
+             }
+
+             .instructions h4 {
+                 color: #4CAF50;
+                 margin-bottom: 10px;
+             }
+
              @media (max-width: 600px) {
                  h1 { font-size: 2em; }
                  .logo { font-size: 60px; }
@@ -181,12 +216,27 @@
                      </button>
                  </div>
 
-                 <div class="platform" id="android-section">
+                 <div class="platform ready" id="android-section">
                      <h3><span>🤖</span> Android</h3>
-                     <p>Téléchargement direct APK</p>
-                     <button class="btn" onclick="comingSoon('Android')">
-                         APK en préparation
-                     </button>
+                     <p><strong>APK disponible maintenant !
+     (29MB)</strong></p>
+                     <a href="https://drive.google.com/file/d/1gUo4epHUAbFYK
+     0WfG7P68XxavPnFSWu-/view?usp=drive_link" 
+                        class="btn ready" target="_blank" rel="noopener">
+                         Télécharger l'APK
+                     </a>
+
+                     <div class="instructions">
+                         <h4>📱 Comment installer :</h4>
+                         <ol>
+                             <li>Télécharger le fichier APK (29MB)</li>
+                             <li>Paramètres → Sécurité → "Sources inconnues"
+      ✓</li>
+                             <li>Ouvrir l'APK téléchargé</li>
+                             <li>Suivre les instructions d'installation</li>
+                             <li>C'est parti ! 🎉</li>
+                         </ol>
+                     </div>
                  </div>
              </div>
 
@@ -213,11 +263,10 @@
                  </div>
              </div>
 
-             <div class="info">
-                 <strong>🚀 Application en cours de finalisation
-     !</strong><br><br>
-                 Tu seras notifié dès que l'app sera disponible.<br>
-                 En attendant, suis-nous pour les dernières news !<br><br>
+             <div class="info success">
+                 <strong>🎉 Version Android disponible !</strong><br><br>
+                 L'APK est prêt à télécharger. Version iOS TestFlight arrive
+      bientôt !<br><br>
                  📧 Contact : <strong>contact@tapaslaref.fr</strong>
              </div>
 
@@ -241,23 +290,16 @@
                  } else if (/android/i.test(userAgent)) {
 
      document.getElementById('android-section').classList.add('detected');
-                     console.log('Android détecté');
+                     console.log('Android détecté - APK disponible !');
                  }
              }
 
-             // Messages selon la plateforme
+             // Message pour iOS
              function comingSoon(platform) {
-                 const messages = {
-                     'iOS': '📱 Version iPhone/iPad bientôt disponible 
-     !\\n\\n🎯 T\'a pas la Réf?! arrivera sur TestFlight dans les prochaines
-      semaines.\\n\\nTu seras notifié par email dès sa sortie !\\n\\n📧 
-     contact@tapaslaref.fr',
-                     'Android': '🤖 Version Android en préparation 
-     !\\n\\nL\'APK sera disponible très bientôt pour téléchargement 
-     direct.\\n\\nRestez connectés !\\n\\n📧 contact@tapaslaref.fr'
-                 };
-
-                 alert(messages[platform]);
+                 alert('📱 Version iPhone/iPad bientôt disponible !\\n\\n🎯 
+     T\'a pas la Réf?! arrivera sur TestFlight dans les prochaines 
+     semaines.\\n\\nEn attendant, si vous avez un Android, l\'APK est déjà 
+     disponible !\\n\\n📧 contact@tapaslaref.fr');
              }
 
              // Animation de bienvenue
@@ -279,7 +321,8 @@
              console.log('%c🎯 T\'a pas la Réf?! ', 'background: 
      linear-gradient(45deg, #00ffff, #ff00ff); color: white; font-size: 
      20px; padding: 10px; border-radius: 5px;');
-             console.log('Application développée avec ❤️');
+             console.log('APK Android disponible ! 🤖');
+             console.log('TestFlight iOS bientôt... 🍎');
          </script>
      </body>
      </html>
